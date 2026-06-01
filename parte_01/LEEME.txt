@@ -1,0 +1,12 @@
+PAGINA ULTRA LIVIANA MA&LU MAKEUP
+
+Esta es la version mas comprimida para subir a GitHub.
+Sube a GitHub SOLO el contenido de esta carpeta:
+
+- index.html
+- styles.css
+- script.js
+- assets/
+
+No subas las carpetas anteriores ni la carpeta completa PAGINA_ULTRA_LIVIANA_GITHUB.
+Si GitHub no deja subir muchos archivos juntos, usa SUBIR_ULTRA_LIVIANA_GITHUB_POR_PARTES.
