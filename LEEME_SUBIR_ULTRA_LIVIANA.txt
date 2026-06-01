@@ -1,0 +1,16 @@
+INSTRUCCIONES PARA SUBIR LA VERSION ULTRA LIVIANA A GITHUB
+
+1. En GitHub, entra al repositorio.
+2. Abre parte_01 en tu computador y sube TODO lo que hay dentro.
+3. Espera que GitHub termine el commit.
+4. Repite con parte_02, parte_03, etc.
+
+IMPORTANTE: sube el contenido de cada parte, no la carpeta parte_XX completa.
+No subas PAGINA_ULTRA_LIVIANA_GITHUB completa como subcarpeta.
+
+parte_01: 80 archivos - 0.37 MB
+parte_02: 80 archivos - 0.16 MB
+parte_03: 80 archivos - 0.22 MB
+parte_04: 80 archivos - 0.21 MB
+parte_05: 80 archivos - 0.17 MB
+parte_06: 13 archivos - 0.04 MB
