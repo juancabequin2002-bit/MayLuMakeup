@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ma&LuMakeup | Catalogo de maquillaje</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main id="welcomeScreen" class="welcome-screen" aria-labelledby="welcomeTitle">
+    <div class="ambient-shape shape-1"></div>
+    <div class="ambient-shape shape-2"></div>
+    <div class="ambient-shape shape-3"></div>
+
+    <section class="welcome-content">
+      <p class="eyebrow">Ma&LuMakeup</p>
+      <h1 id="welcomeTitle">Bienvenida a <span>Ma&LuMakeup</span></h1>
+      <p class="welcome-copy">Elige como deseas visualizar nuestro catalogo y disfruta una experiencia pensada para tu pantalla.</p>
+
+      <div class="mode-options" aria-label="Seleccion de modo de visualizacion">
+        <button class="mode-card image-mode-card" type="button" data-mode="mobile" aria-label="Ingresar desde celular">
+          <img src="assets/opcion-movil.png" alt="Ingresar desde celular - Ma&LuMakeup">
+        </button>
+
+        <button class="mode-card image-mode-card" type="button" data-mode="desktop" aria-label="Ingresar desde computadora">
+          <img src="assets/opcion-pc.png" alt="Ingresar desde computadora - Ma&LuMakeup">
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <div id="storeApp" class="store-app hidden">
+    <header class="site-header">
+      <a class="brand" href="#inicio" aria-label="Ir al inicio">Ma&LuMakeup</a>
+      <nav class="top-nav" aria-label="Navegacion principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#catalogo">Catalogo</a>
+        <a href="#pedido">Tu pedido</a>
+        <button id="changeModeBtn" type="button">Elegir modo</button>
+      </nav>
+      <button id="cartToggle" class="cart-toggle" type="button" aria-label="Abrir carrito">
+        <span>🛒</span>
+        <strong id="cartBubble">0</strong>
+      </button>
+    </header>
+
+    <section id="inicio" class="hero-section">
+      <div class="hero-copy">
+        <p class="eyebrow">Maquillaje · Belleza · Estilo</p>
+        <h2>Catalogo de maquillaje y belleza Ma&LuMakeup</h2>
+        <p>Explora productos, tonos, kits y accesorios para crear looks que resaltan tu belleza con confianza.</p>
+        <div class="hero-actions">
+          <a class="primary-link" href="#catalogo">Ver catalogo</a>
+          <button class="secondary-link" type="button" id="quickWhatsapp">WhatsApp pedidos</button>
+        </div>
+        <div class="stats">
+          <div><strong id="totalProductsStat">0</strong><span>productos disponibles</span></div>
+          <div><strong id="cartTotalStat">$0</strong><span>en tu pedido</span></div>
+        </div>
+      </div>
+      <div class="hero-panel" aria-hidden="true">
+        <div class="glow-card">
+          <span>Ma&Lu</span>
+          <strong>Makeup</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="mode-strip" aria-label="Cambio de modo">
+      <div>
+        <strong>Elige como quieres ver la tienda</strong>
+        <p>Si el navegador del telefono la abre raro, puedes cambiar entre modo movil y modo PC.</p>
+      </div>
+      <div class="segmented-control">
+        <button type="button" data-mode-switch="mobile">📱 Modo movil</button>
+        <button type="button" data-mode-switch="desktop">🖥️ Modo PC</button>
+      </div>
+    </section>
+
+    <section id="catalogo" class="catalog-layout">
+      <div class="catalog-main">
+        <div class="toolbar">
+          <label class="search-box">
+            <span>Buscar producto</span>
+            <input id="searchInput" type="search" placeholder="Buscar producto o referencia">
+          </label>
+          <label class="filter-box">
+            <span>Categoria</span>
+            <select id="categoryFilter">
+              <option value="Todas">Todas las categorias</option>
+              <option value="Labios">Labios</option>
+              <option value="Rostro">Rostro</option>
+              <option value="Ojos">Ojos</option>
+              <option value="Brochas">Brochas</option>
+              <option value="Accesorios">Accesorios</option>
+              <option value="Otros">Otros</option>
+            </select>
+          </label>
+        </div>
+
+        <div id="productsGrid" class="products-grid" aria-live="polite"></div>
+        <p id="emptyState" class="empty-state hidden">No encontramos productos con esa busqueda.</p>
+      </div>
+
+      <aside id="pedido" class="cart-panel" aria-labelledby="cartTitle">
+        <div class="cart-panel-head">
+          <div>
+            <p class="eyebrow">Carrito Ma&LuMakeup</p>
+            <h2 id="cartTitle">Tu pedido</h2>
+          </div>
+          <button id="closeCart" type="button" aria-label="Cerrar carrito">×</button>
+        </div>
+
+        <p class="cart-help">Revisa tus productos, cantidades y total antes de enviarlo directo por WhatsApp.</p>
+        <div id="cartItems" class="cart-items"></div>
+
+        <div class="cart-summary">
+          <span>Total</span>
+          <strong id="cartTotal">$0</strong>
+        </div>
+
+        <div class="customer-fields">
+          <input id="customerName" type="text" placeholder="Nombre completo">
+          <input id="customerPhone" type="tel" placeholder="Telefono">
+          <input id="customerCity" type="text" placeholder="Ciudad o municipio">
+          <input id="customerAddress" type="text" placeholder="Direccion">
+          <textarea id="customerNotes" rows="4" placeholder="Notas del pedido"></textarea>
+        </div>
+
+        <div class="cart-actions">
+          <button id="sendWhatsapp" class="whatsapp-btn" type="button">Enviar pedido por WhatsApp</button>
+          <button id="clearCart" class="clear-btn" type="button">Vaciar carrito</button>
+        </div>
+      </aside>
+    </section>
+
+    <footer class="site-footer">
+      <p>© 2026 Ma&LuMakeup - Belleza y maquillaje</p>
+      <p>Pedidos por WhatsApp: 3214107108</p>
+    </footer>
+  </div>
+
+  <div id="productModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-backdrop" data-close-modal></div>
+    <article class="modal-card">
+      <button class="modal-close" type="button" data-close-modal aria-label="Cerrar producto">×</button>
+      <img id="modalImage" src="" alt="">
+      <div class="modal-info">
+        <p id="modalCategory" class="pill"></p>
+        <h2 id="modalTitle"></h2>
+        <p id="modalDescription"></p>
+        <strong id="modalPrice"></strong>
+        <button id="modalAddBtn" class="primary-button" type="button">Agregar al carrito</button>
+      </div>
+    </article>
+  </div>
+
+  <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
