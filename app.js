@@ -289,9 +289,24 @@ function sendOrderWhatsApp() {
   }
 
   const total = rows.reduce((sum, item) => sum + item.qty * item.price, 0);
+  const icon = (...codes) => String.fromCodePoint(...codes);
+  const icons = {
+    bag: icon(0x1F6CD, 0xFE0F),
+    lipstick: icon(0x1F484),
+    box: icon(0x1F4E6),
+    money: icon(0x1F4B0),
+    person: icon(0x1F464),
+    pin: icon(0x1F4CC),
+    phone: icon(0x1F4DE),
+    city: icon(0x1F3D9, 0xFE0F),
+    house: icon(0x1F3E0),
+    note: icon(0x1F4DD),
+    check: icon(0x2705),
+    ten: icon(0x1F51F)
+  };
   const numberIcon = (index) => {
-    if (index === 9) return "\uD83D\uDD1F";
-    if (index < 9) return `${index + 1}\uFE0F\u20E3`;
+    if (index === 9) return icons.ten;
+    if (index < 9) return `${index + 1}${icon(0xFE0F, 0x20E3)}`;
     return `${index + 1}.`;
   };
   const products = rows.map((item, index) => [
@@ -303,31 +318,31 @@ function sendOrderWhatsApp() {
   ].join("\n")).join("\n\n");
   const separator = "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501";
   const message = [
-    "\uD83D\uDECD\uFE0F *NUEVO PEDIDO - MA&LUMAKEUP* \uD83D\uDC84",
+    `${icons.bag} *NUEVO PEDIDO - MA&LUMAKEUP* ${icons.lipstick}`,
     separator,
     "",
-    "\uD83D\uDCE6 *Productos solicitados:*",
+    `${icons.box} *Productos solicitados:*`,
     "",
     products,
     "",
     separator,
-    `\uD83D\uDCB0 *Total del pedido:* ${whatsappMoney(total)}`,
+    `${icons.money} *Total del pedido:* ${whatsappMoney(total)}`,
     separator,
     "",
-    "\uD83D\uDC64 *Datos del cliente:*",
+    `${icons.person} *Datos del cliente:*`,
     "",
-    `\uD83D\uDCCC Nombre: ${name}`,
-    `\uD83D\uDCDE Tel\u00E9fono: ${phone}`,
-    `\uD83C\uDFD9\uFE0F Ciudad: ${city}`,
-    `\uD83C\uDFE0 Direcci\u00F3n: ${address}`,
+    `${icons.pin} Nombre: ${name}`,
+    `${icons.phone} Tel\u00E9fono: ${phone}`,
+    `${icons.city} Ciudad: ${city}`,
+    `${icons.house} Direcci\u00F3n: ${address}`,
     "",
-    "\uD83D\uDCDD *Notas del cliente:*",
+    `${icons.note} *Notas del cliente:*`,
     notes || "Sin notas.",
     "",
     separator,
-    "\u2705 Pedido enviado desde la p\u00E1gina de *MA&LUMAKEUP*."
+    `${icons.check} Pedido enviado desde la p\u00E1gina de *MA&LUMAKEUP*.`
   ].filter(Boolean).join("\n");
-  window.open(`https://wa.me/${sellerWhatsApp}?text=${encodeURIComponent(message)}`, "_blank");
+  window.open(`https://api.whatsapp.com/send?phone=${sellerWhatsApp}&text=${encodeURIComponent(message)}`, "_blank");
 }
 function applyViewMode(mode) {
   state.viewMode = mode;
