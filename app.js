@@ -242,7 +242,6 @@ function openProductModal(product) {
   byId("modalPrice").textContent = money(firstVariant ? variantPrice(product, firstVariant) : productPrice(product));
   byId("modalListPrice").textContent = "";
   byId("modalDescription").textContent = cleanDescription(product);
-  byId("modalSiteLink").href = product.link || "https://www.maquillajetrendyshop.com/";
   renderVariantList(product);
 
   productModal.classList.add("open");
