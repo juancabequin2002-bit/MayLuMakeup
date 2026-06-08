@@ -1,0 +1,22 @@
+# Archivos temporales usados para construir el catalogo
+catalogo_tmp/
+COTIZADOR_27_MAYO_2026.xlsx.zip
+api_products.json
+image_cache.json
+site_catalog_raw.json
+missing_image_report.json
+test_ft.json
+test_ref.json
+test_sku_1220.json
+
+# Scripts de apoyo, no necesarios para publicar la tienda
+add_image_fallbacks.py
+fetch_images.py
+fetch_site_catalog.py
+repair_missing_images.py
+
+# Copia original del logo antes de moverlo a img/
+ChatGPT Image 7 jun 2026, 08_37_14 p.m..png
+
+# Video no usado actualmente en la pagina
+istockphoto-926562958-640_adpp_is.mp4

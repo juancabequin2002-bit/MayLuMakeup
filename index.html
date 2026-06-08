@@ -1,0 +1,240 @@
+﻿<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MA&LUMAKEUP</title>
+    <meta name="description" content="Catalogo de maquillaje, skincare, accesorios y capilar de MA&LUMAKEUP.">
+    <link rel="preconnect" href="https://b2ctrendy.vteximg.com.br">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <section class="device-gate" id="deviceGate" aria-labelledby="deviceTitle">
+      <div class="device-inner">
+        <p>MA&LUMAKEUP</p>
+        <h1 id="deviceTitle">Bienvenida a Ma&LuMakeup</h1>
+        <span>Elige como deseas visualizar nuestro catalogo y disfruta una experiencia pensada para tu pantalla.</span>
+        <div class="device-options">
+          <button class="device-card device-mobile" type="button" data-view="mobile">
+            <strong>Ingresar desde celular</strong>
+            <small>Vista vertical, botones grandes y carrito flotante.</small>
+          </button>
+          <button class="device-card device-desktop" type="button" data-view="desktop">
+            <strong>Ingresar desde computador</strong>
+            <small>Vista amplia, catalogo en cuadricula y pedido lateral.</small>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <div class="promo-bar">Nueva coleccion disponible - productos destacados - envios a nivel nacional</div>
+
+    <header class="site-header">
+      <a class="brand" href="#inicio" aria-label="Inicio">
+        <span class="brand-logo">
+          <img src="img/brand-ma-lu-glow.png" alt="Ma&Lu Glow">
+        </span>
+        <span class="brand-text">
+          <strong>MA&LUMAKEUP</strong>
+          <small>Beauty Store</small>
+        </span>
+      </a>
+      <label class="search">
+        <span>Buscar</span>
+        <input id="searchInput" type="search" placeholder="Busca maquillaje, skincare, accesorios...">
+      </label>
+      <button class="cart-button" id="cartButton" type="button" aria-label="Abrir carrito">
+        <span>Carrito</span>
+        <strong id="cartCount">0</strong>
+      </button>
+      <button class="admin-button" id="adminButton" type="button">Administrador</button>
+      <button class="view-button" id="viewButton" type="button">Vista</button>
+    </header>
+
+    <nav class="category-nav" aria-label="Categorias principales">
+      <button class="nav-pill active" data-category="Todas" type="button">Todas</button>
+      <button class="nav-pill" data-category="ROSTRO" type="button">Maquillaje</button>
+      <button class="nav-pill" data-category="PIEL" type="button">Cuidado de la Piel</button>
+      <button class="nav-pill" data-category="BROCHAS" type="button">Brochas y Esponjas</button>
+      <button class="nav-pill" data-category="ACCESORIOS" type="button">Accesorios</button>
+      <button class="nav-pill" data-category="CAPILAR" type="button">Capilar</button>
+    </nav>
+
+    <main id="inicio">
+      <section class="hero">
+        <div class="hero-copy">
+          <p>beauty shop</p>
+          <h1>MA&LUMAKEUP</h1>
+          <p class="hero-description">Una tienda de maquillaje y belleza creada para encontrar productos de rostro, labios, ojos, skincare, accesorios y colecciones especiales en un solo lugar. Explora el catalogo, mira cada detalle y arma tu compra con tus favoritos.</p>
+          <div class="hero-actions">
+            <a class="hero-cta" href="#catalogo">Ver catalogo</a>
+            <button class="hero-secondary" id="heroCartButton" type="button">Armar pedido</button>
+          </div>
+          <div class="hero-stats" aria-label="Beneficios de compra">
+            <span>Maquillaje</span>
+            <span>Skincare</span>
+            <span>WhatsApp</span>
+          </div>
+        </div>
+        <div class="hero-collection">
+          <img src="img/home-collection.png" alt="Coleccion de maquillaje MA&LUMAKEUP">
+        </div>
+      </section>
+
+      <section class="section-head">
+        <p>seleccion especial</p>
+        <h2>Productos destacados</h2>
+      </section>
+      <section class="product-strip" id="offerStrip" aria-label="Productos destacados"></section>
+
+      <section class="section-head">
+        <p>ultimos lanzamientos</p>
+        <h2>Conoce aqui lo nuevo</h2>
+      </section>
+      <section class="product-strip" id="newStrip" aria-label="Novedades destacadas"></section>
+
+      <section class="catalog-layout" id="catalogo">
+        <aside class="filters">
+          <h2>Catalogo</h2>
+          <p id="resultSummary">Cargando productos...</p>
+          <label>
+            Categoria
+            <select id="categorySelect"></select>
+          </label>
+          <label>
+            Precio maximo
+            <input id="priceRange" type="range" min="0" max="150000" step="1000" value="150000">
+            <span id="priceLabel">$ 150.000</span>
+          </label>
+          <label>
+            Ordenar
+            <select id="sortSelect">
+              <option value="featured">Destacados</option>
+              <option value="priceAsc">Menor precio</option>
+              <option value="priceDesc">Mayor precio</option>
+              <option value="nameAsc">Nombre A-Z</option>
+            </select>
+          </label>
+        </aside>
+        <section class="product-grid" id="productGrid" aria-live="polite"></section>
+      </section>
+
+      <section class="trust-row" aria-label="Beneficios">
+        <article><strong>Compra facil y segura</strong></article>
+        <article><strong>Excelente calidad</strong></article>
+        <article><strong>Envios a nivel nacional</strong></article>
+        <article><strong>Asesoria personalizada</strong></article>
+      </section>
+    </main>
+
+    <aside class="cart-panel" id="cartPanel" aria-hidden="true">
+      <div class="cart-head">
+        <div>
+          <span>Carrito MA&LUMAKEUP</span>
+          <h2>Tu pedido</h2>
+          <p>Revisa tus productos, cantidades y total antes de enviarlo directo por WhatsApp.</p>
+        </div>
+        <button id="closeCart" type="button" aria-label="Cerrar carrito">x</button>
+      </div>
+      <div id="cartItems" class="cart-items"></div>
+      <div class="cart-total">
+        <span>Total estimado</span>
+        <strong id="cartTotal">$ 0</strong>
+      </div>
+      <form class="order-form" id="orderForm">
+        <input id="customerName" type="text" placeholder="Nombre completo">
+        <input id="customerPhone" type="tel" placeholder="Telefono">
+        <input id="customerCity" type="text" placeholder="Ciudad o municipio">
+        <input id="customerAddress" type="text" placeholder="Direccion">
+        <textarea id="customerNotes" placeholder="Notas del pedido"></textarea>
+      </form>
+      <button class="checkout-button" id="sendWhatsApp" type="button">Enviar pedido por WhatsApp</button>
+      <button class="clear-cart" id="clearCart" type="button">Vaciar carrito</button>
+    </aside>
+    <button class="mobile-cart-dock" id="mobileCartButton" type="button">Carrito <strong id="mobileCartCount">0</strong></button>
+
+    <section class="product-modal" id="productModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-card">
+        <button class="modal-close" id="closeModal" type="button" aria-label="Cerrar detalle">x</button>
+        <div class="modal-image-wrap">
+          <img id="modalImage" alt="">
+        </div>
+        <div class="modal-info">
+          <span class="modal-category" id="modalCategory"></span>
+          <h2 id="modalTitle"></h2>
+          <div class="price-line">
+            <span class="list-price" id="modalListPrice"></span>
+            <span class="price" id="modalPrice"></span>
+          </div>
+          <p class="modal-description" id="modalDescription"></p>
+          <div class="variant-box" id="variantBox">
+            <strong>Variaciones disponibles</strong>
+            <div class="variant-list" id="variantList"></div>
+          </div>
+          <div class="modal-actions">
+            <button class="checkout-button" id="modalAddButton" type="button">Agregar al carrito</button>
+            <a class="site-link" id="modalSiteLink" target="_blank" rel="noreferrer">Ver producto original</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="admin-panel" id="adminPanel" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
+      <div class="admin-card">
+        <button class="admin-close" id="closeAdmin" type="button" aria-label="Cerrar administrador">x</button>
+        <div class="admin-login" id="adminLogin">
+          <h2 id="adminTitle">Administrador</h2>
+          <p>Edita los precios del catalogo iniciando sesion como administrador.</p>
+          <label>
+            Usuario
+            <input id="adminUser" type="text" autocomplete="username">
+          </label>
+          <label>
+            Clave
+            <input id="adminPass" type="password" autocomplete="current-password">
+          </label>
+          <button class="checkout-button" id="loginButton" type="button">Entrar</button>
+          <small id="loginMessage"></small>
+        </div>
+        <div class="admin-editor" id="adminEditor" hidden>
+          <div class="admin-head">
+            <div>
+              <h2>Editar precios</h2>
+              <p>Los cambios se guardan en este navegador.</p>
+            </div>
+            <button class="admin-reset" id="resetPrices" type="button">Restaurar precios</button>
+          </div>
+          <label class="admin-search">
+            Buscar producto
+            <input id="adminSearch" type="search" placeholder="Nombre o referencia">
+          </label>
+          <div class="admin-list" id="adminList"></div>
+        </div>
+      </div>
+    </section>
+    <div class="scrim" id="scrim"></div>
+
+    <footer class="footer">
+      <div>
+        <h2>Informacion</h2>
+        <a href="#">Terminos y condiciones</a>
+        <a href="#">Politicas de privacidad</a>
+        <a href="#">Preguntas frecuentes</a>
+      </div>
+      <div>
+        <h2>Atencion al cliente</h2>
+        <p>Lunes a viernes de 7:30 a.m. a 5:00 p.m.</p>
+        <p>ventas@malumakeup.com</p>
+        <p>+57 316 3440010</p>
+      </div>
+      <div>
+        <h2>Pagos</h2>
+        <p>Nequi · Visa · Mastercard · PSE · Mercado Pago</p>
+      </div>
+    </footer>
+
+    <script src="data/products.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
+
