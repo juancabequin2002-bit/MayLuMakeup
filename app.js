@@ -290,7 +290,7 @@ function sendOrderWhatsApp() {
 
   const total = rows.reduce((sum, item) => sum + item.qty * item.price, 0);
   const numberIcon = (index) => {
-    if (index === 9) return "🔟";
+    if (index === 9) return "\uD83D\uDD1F";
     if (index < 9) return `${index + 1}\uFE0F\u20E3`;
     return `${index + 1}.`;
   };
@@ -301,34 +301,34 @@ function sendOrderWhatsApp() {
     `   Valor unitario: ${whatsappMoney(item.price)}`,
     `   Subtotal: ${whatsappMoney(item.qty * item.price)}`
   ].join("\n")).join("\n\n");
+  const separator = "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501";
   const message = [
-    "🛍️ *NUEVO PEDIDO - MA&LUMAKEUP* 💄",
-    "━━━━━━━━━━━━━━━━━━━━",
+    "\uD83D\uDECD\uFE0F *NUEVO PEDIDO - MA&LUMAKEUP* \uD83D\uDC84",
+    separator,
     "",
-    "📦 *Productos solicitados:*",
+    "\uD83D\uDCE6 *Productos solicitados:*",
     "",
     products,
     "",
-    "━━━━━━━━━━━━━━━━━━━━",
-    `💰 *Total del pedido:* ${whatsappMoney(total)}`,
-    "━━━━━━━━━━━━━━━━━━━━",
+    separator,
+    `\uD83D\uDCB0 *Total del pedido:* ${whatsappMoney(total)}`,
+    separator,
     "",
-    "👤 *Datos del cliente:*",
+    "\uD83D\uDC64 *Datos del cliente:*",
     "",
-    `📌 Nombre: ${name}`,
-    `📞 Teléfono: ${phone}`,
-    `🏙️ Ciudad: ${city}`,
-    `🏠 Dirección: ${address}`,
+    `\uD83D\uDCCC Nombre: ${name}`,
+    `\uD83D\uDCDE Tel\u00E9fono: ${phone}`,
+    `\uD83C\uDFD9\uFE0F Ciudad: ${city}`,
+    `\uD83C\uDFE0 Direcci\u00F3n: ${address}`,
     "",
-    "📝 *Notas del cliente:*",
+    "\uD83D\uDCDD *Notas del cliente:*",
     notes || "Sin notas.",
     "",
-    "━━━━━━━━━━━━━━━━━━━━",
-    "✅ Pedido enviado desde la página de *MA&LUMAKEUP*."
+    separator,
+    "\u2705 Pedido enviado desde la p\u00E1gina de *MA&LUMAKEUP*."
   ].filter(Boolean).join("\n");
   window.open(`https://wa.me/${sellerWhatsApp}?text=${encodeURIComponent(message)}`, "_blank");
 }
-
 function applyViewMode(mode) {
   state.viewMode = mode;
   localStorage.setItem("maluViewMode", mode);
